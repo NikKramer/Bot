@@ -80,12 +80,15 @@ public class BotApplication extends TelegramLongPollingBot {
                                         "Чтобы начать, введите команду '/set_weight вес'").build());
                                 case "/set_amount":
                                     InlineKeyboardButton.builder().callbackData("amount");
+                                    execute(SendMessage.builder().chatId(message.getChatId().toString()).text("Полностью алкоголь выйдет через:" + Converter() + "минут").build());
                             }
 
             }
         }
         return buttons;
     }
+
+
     //11 символов
     @SneakyThrows
     public void HandlerCallback(CallbackQuery callbackQuery){
@@ -147,7 +150,7 @@ public class BotApplication extends TelegramLongPollingBot {
         int degree;
         public static double weight;
         public static double amount;
-    public double Converter(Alcohol alcohol, int mess){
+    public double Converter(){
         final double manCoef = 0.7;
         final double womanCoef = 0.6;
         double time;
